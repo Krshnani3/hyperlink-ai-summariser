@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+selenium
+requests
+beautifulsoup4
+python-dotenv
+openai
+readability-lxml
+jinja2

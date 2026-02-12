@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PIB WaiVY</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Orbitron:wght@600&display=swap" rel="stylesheet">
+
+    <style>
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #eef2ff, #f8fbff);
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background: linear-gradient(90deg, #0f2027, #2c5364, #00c6ff);
+            background-size: 200% 200%;
+            animation: gradientMove 8s ease infinite;
+            color: white;
+            padding: 28px;
+            text-align: center;
+            font-size: 28px;
+            font-weight: 700;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.25);
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+
+        /* ===== MAIN BUTTON ===== */
+        .main-button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 50px 20px;
+        }
+
+        .visit-btn {
+            background: linear-gradient(90deg, #0066ff, #00c6ff);
+            color: white;
+            border: none;
+            padding: 20px 50px;
+            font-size: 22px;
+            font-weight: 600;
+            border-radius: 60px;
+            cursor: pointer;
+            box-shadow: 0 12px 30px rgba(0,102,255,0.4);
+            transition: all 0.3s ease;
+        }
+
+        .visit-btn:hover {
+            transform: scale(1.06);
+            box-shadow: 0 15px 35px rgba(0,102,255,0.55);
+        }
+
+        .visit-btn:active {
+            transform: scale(0.97);
+        }
+
+        /* ===== DATE SELECTOR ===== */
+
+        .date-selector-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .date-input {
+            padding: 12px 18px;
+            font-size: 16px;
+            border-radius: 40px;
+            border: 2px solid #0066ff;
+            outline: none;
+            font-family: 'Poppins', sans-serif;
+            box-shadow: 0 4px 12px rgba(0,102,255,0.15);
+            transition: 0.3s ease;
+        }
+
+        .date-input:hover {
+            box-shadow: 0 6px 16px rgba(0,102,255,0.25);
+        }
+
+        .date-input:focus {
+            border-color: #00c6ff;
+        }
+
+
+        /* ===== FEED ===== */
+        .feed {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .card {
+            position: relative;
+            background: white;
+            width: 95%;
+            max-width: 520px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+            padding: 22px;
+            transition: all 0.25s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
+
+        .badge {
+            background: linear-gradient(90deg, #0066ff, #00c6ff);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 25px;
+            font-size: 12px;
+            display: inline-block;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        
+        /* Date Badge (Top Right Corner) */
+        .date-badge {
+            position: absolute;
+            top: 18px;
+            right: 20px;
+            background: linear-gradient(135deg, #f7971e, #ffd200);
+            color: #222;
+            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.5);
+            padding: 6px 14px;
+            border-radius: 25px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .headline {
+            font-size: 19px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #111;
+        }
+
+        .summary {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #444;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 18px;
+        }
+
+        .love-btn {
+            cursor: pointer;
+            font-size: 20px;
+            border: none;
+            background: none;
+            transition: transform 0.2s ease;
+        }
+
+        .love-btn.liked {
+            color: #ff4d6d;
+            transform: scale(1.25);
+            transition: all 0.2s ease;
+        }
+
+        .love-btn:hover {
+            transform: scale(1.2);
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 30px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .whatsapp-btn img {
+            width: 18px;
+            margin-right: 6px;
+        }
+
+        .instagram-btn {
+            background: linear-gradient(45deg, #feda75, #d62976, #962fbf);
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 30px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .instagram-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .x-btn {
+            background: black;
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 30px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .x-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .instagram-btn img,
+        .x-btn img {
+            width: 18px;
+            margin-right: 6px;
+        }
+
+
+        /* ===== LOADER ===== */
+        .loader-bar-container {
+            width: 90%;
+            max-width: 520px;
+            background: #e0e0e0;
+            border-radius: 30px;
+            overflow: hidden;
+            margin: 20px auto;
+            display: none;
+        }
+
+        .loader-bar {
+            height: 14px;
+            width: 0%;
+            background: linear-gradient(90deg, #0066ff, #00c6ff);
+            transition: width 0.4s ease;
+        }
+
+        .loader-text {
+            text-align: center;
+            font-size: 14px;
+            margin-top: 12px;
+            display: none;
+            font-weight: 500;
+        }
+
+        .pib-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 14px;
+            color: #1a73e8;
+            font-weight: 500;
+            text-decoration: none;
+            margin-bottom: 8px;
+        }
+
+        
+        .pib-link:hover {
+            text-decoration: underline;
+        }
+
+        .pib-link svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        /* ===== FOOTER ===== */
+    footer {
+        text-align: center;
+        padding: 18px;
+        font-size: 14px;
+        background: #111;
+        color: #ccc;
+        font-weight: 500;
+        margin-top: 40px;
+    }
+
+    footer span {
+        color: #ff4d6d;
+        font-weight: 600;
+    }
+
+        
+    </style>
+</head>
+
+<body>
+
+<header> 🌊 PIB WaiVY 🤖: MIB's NextGEN 👦🏻👧🏻 AI Workhorse 🐴</header>
+
+ <!-- ===== DATE SELECTOR ===== -->
+<div class="date-selector-container">
+    <input type="date" id="selectedDate" class="date-input">
+</div>
+
+<div class="main-button-container">
+    <button class="visit-btn" onclick="loadSummaries()">
+        🚀 Fetch AI Summaries for Press Releases of Selected Date 🗓️
+    </button>
+</div>
+
+<div class="loader-bar-container" id="loaderContainer">
+    <div class="loader-bar" id="loaderBar"></div>
+</div>
+
+<div class="loader-text" id="loaderText">
+    ⏰ Hold on! 🏝️ PIB WaiVY is bringing you AI powered summaries 📋🎯
+</div>
+
+<div class="feed" id="feed"></div>
+
+<script>
+
+async function loadSummaries() {
+
+    const loaderContainer = document.getElementById("loaderContainer");
+    const loaderBar = document.getElementById("loaderBar");
+    const loaderText = document.getElementById("loaderText");
+
+    loaderContainer.style.display = "block";
+    loaderText.style.display = "block";
+    loaderBar.style.width = "0%";
+
+    let progress = 0;
+    const interval = setInterval(() => {
+        if (progress < 90) {
+            progress += 5;
+            loaderBar.style.width = progress + "%";
+        }
+    }, 400);
+
+    try {
+        const selectedDate = document.getElementById("selectedDate").value;
+
+        if (!selectedDate) {
+            alert("Please select a date first.");
+            return;
+        }
+
+        const response = await fetch(`/summarise-links?date=${selectedDate}&limit=100`);
+
+        const data = await response.json();
+
+        clearInterval(interval);
+        loaderBar.style.width = "100%";
+
+        setTimeout(() => {
+            loaderContainer.style.display = "none";
+            loaderText.style.display = "none";
+        }, 800);
+
+        const feed = document.getElementById("feed");
+        feed.innerHTML = "";
+
+        data.items.forEach(item => {
+
+            const card = document.createElement("div");
+            card.className = "card";
+
+            card.innerHTML = `
+                <div class="badge">${item.ministry}</div>
+                <div class="headline">${item.headline || "Untitled"}</div>
+                <a class="pib-link" href="${item.url}" target="_blank">
+                    PIB Original Press Release
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        width="14"
+                        height="14">
+                        <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3z"/>
+                        <path d="M5 5h6v2H7v10h10v-4h2v6H5V5z"/>
+                    </svg>
+                </a>
+
+                <div class="summary">${item.summary}</div>
+                <div class="date-badge">${item.date || "Date N/A"}</div>
+
+                <div class="actions">
+                    <button class="love-btn" onclick="toggleLove(this)">
+                        🤍 <span class="love-count">0</span>
+                    </button>
+
+
+                    <a class="whatsapp-btn" 
+                       href="https://wa.me/?text=${encodeURIComponent(item.headline + " - " + item.summary)}"
+                       target="_blank">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+                        Share
+                    </a>
+
+                    <a class="instagram-btn" 
+                        href="https://www.instagram.com/"
+                        target="_blank">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png">
+                        Share
+                    </a>
+
+                    <a class="x-btn" 
+                        href="https://twitter.com/intent/tweet?text=${encodeURIComponent(item.headline + " - " + item.summary)}"
+                        target="_blank">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/X_logo_2023_%28white%29.png">
+                        Share
+                    </a>
+                </div>
+            `;
+
+            feed.appendChild(card);
+        });
+
+    } catch (error) {
+        alert("Something went wrong while fetching summaries.");
+        console.error(error);
+    }
+}
+
+function toggleLove(button) {
+
+    const countSpan = button.querySelector(".love-count");
+    let count = parseInt(countSpan.innerText);
+
+    if (button.classList.contains("liked")) {
+        button.classList.remove("liked");
+        button.innerHTML = `🤍 <span class="love-count">${count - 1}</span>`;
+    } else {
+        button.classList.add("liked");
+        button.innerHTML = `❤️ <span class="love-count">${count + 1}</span>`;
+    }
+}
+
+
+</script>
+
+<footer>
+    Ideated & designed with <span>❤️</span> by Krshnani, IIS (OT, 2024 batch)
+</footer>
+
+</body>
+</html>
