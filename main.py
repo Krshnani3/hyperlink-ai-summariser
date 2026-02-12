@@ -38,8 +38,7 @@ def extract_hyperlinks(page_url, target_date):
     month = str(int(target_date.month))
     year = str(target_date.year)
 
-    service = Service("chromedriver.exe")
-    options = webdriver.ChromeOptions()
+    driver = webdriver.Chrome(options=options)
     options.add_argument("--headless=new")
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
@@ -48,7 +47,7 @@ def extract_hyperlinks(page_url, target_date):
 
     # options.add_argument("--headless")  # Uncomment later if you want background mode
 
-    driver = webdriver.Chrome(service=service, options=options)
+    driver = webdriver.Chrome(options=options)
 
     try:
         driver.get(page_url)
