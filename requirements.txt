@@ -7,4 +7,3 @@ python-dotenv
 openai
 readability-lxml
 jinja2
-webdriver-manager
